@@ -1,17 +1,52 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
 
 #define QTD_TERRITORIOS 5
-#define MAX_STRING 30
+#define TAM_STR_NOME 30
+#define TAM_STR_COR 10
 
 struct Territorio {
-	char nome[30];
-	char cor[10];
+	char nome[TAM_STR_NOME];
+	char cor[TAM_STR_COR];
 	int tropas;
+};
+
+
+void limparBufferEntrada(){
+	int c;
+	while((c = getchar()) != '\n' && c != EOF);
 }
 
 int main(){
-	printf("----------                 NOVATO                    -------\n\n")
+	int indice = 0;
+
+	struct Territorio territorios[QTD_TERRITORIOS];
+
+	printf("----------                 NOVATO                    -------\n\n");
 	printf("--- Vamos cadastrar os territorios inciais do nosso mundo.---\n\n");
+
+	for(indice = 0; indice < QTD_TERRITORIOS; indice++){
+
+		printf("--- Cadastrando Territorio %d ---\n", indice + 1);
+
+		printf("Nome do Territorio: ");
+		fgets(territorios[indice].nome, TAM_STR_NOME, stdin);
+
+		printf("Cor do Exercito: ");
+		fgets(territorios[indice].cor, TAM_STR_COR, stdin);
+
+		printf("Numero de Tropas: ");
+		scanf("%d", &territorios[indice].tropas);
+
+		territorios[indice].nome[strcspn(territorios[indice].nome, "\n")] = '\0';
+		territorios[indice].cor[strcspn(territorios[indice].cor, "\n")] = '\0';
+		
+		limparBufferEntrada();
+		printf("\n");
+
+		printf("Cadastro inicial concludo com sucesso!");
+	}
+	
 	return 0;
 }
