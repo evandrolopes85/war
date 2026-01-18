@@ -44,9 +44,23 @@ int main(){
 		
 		limparBufferEntrada();
 		printf("\n");
-
-		printf("Cadastro inicial concludo com sucesso!");
 	}
+
+	printf("Cadastro inicial concludo com sucesso!");
+
+	printf("======================================================\n");
+	printf("			MAPA DO MUNDO - ESTADO ATUAL \n");
+	printf("======================================================\n");
 	
+	for(indice = 0; indice < QTD_TERRITORIOS; indice++){
+
+		printf("TERRITORIO %d ---\n", indice + 1);
+
+		printf("\t- Nome: %s\n", territorios[indice].nome);
+		printf("\t- Dominado por: Exercito %s\n", territorios[indice].cor);
+		printf("\t- Tropas: %d\n", territorios[indice].tropas);	
+		printf("\n");
+	}
+
 	return 0;
 }
