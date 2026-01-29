@@ -21,7 +21,9 @@ void limparBufferEntrada(){
 int main(){
 	int indice = 0;
 
-	struct Territorio territorios[QTD_TERRITORIOS];
+	struct Territorio *territorios;
+
+	territorios = (struct Territorio *) malloc(QTD_TERRITORIOS * sizeof(struct Territorio));
 
 	printf("----------                 NOVATO                    -------\n\n");
 	printf("--- Vamos cadastrar os territorios inciais do nosso mundo.---\n\n");
