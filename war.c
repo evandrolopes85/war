@@ -100,14 +100,6 @@ int main(){
 
 	printf("Cadastro inicial concludo com sucesso!");
 
-	// printf("\n\n======================================================\n");
-	// printf("	MAPA DO MUNDO - ESTADO ATUAL \n");
-	// printf("======================================================\n\n");
-	
-	// for(indice = 0; indice < QTD_TERRITORIOS; indice++){
-	// 	printf("%d. %s (Exercito %s, Tropas: %d)\n", indice + 1, territorios[indice].nome,territorios[indice].cor, territorios[indice].tropas);
-	// }
-
 	do{
 		exibirMapa(territorios);
 
