@@ -104,7 +104,7 @@ int main(){
 		printf("\n");
 	}
 
-	printf("Cadastro inicial concludo com sucesso!");
+	printf("Cadastro inicial concluido com sucesso!");
 
 	do{
 		exibirMapa(territorios);
