@@ -121,6 +121,7 @@ int main(){
 
 			if(opcao_territorio_atacante == 0){
 				printf("\nFinalizando jogo....\n\n");
+				liberarMemoria(territorios);
 				exit(1);
 			}
 
