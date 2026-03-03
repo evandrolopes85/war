@@ -20,8 +20,14 @@ void limparBufferEntrada(){
 }
 
 void atacar(struct Territorio *atacante, struct Territorio *defensor){
-	int dadoAtacante = (rand() % QTD_TERRITORIOS) + 1;
-	int dadoDefensor = (rand() % QTD_TERRITORIOS) + 1;
+
+	int dadoAtacante = 0;
+	int dadoDefensor = 0;
+
+	do{
+		dadoAtacante = (rand() % QTD_TERRITORIOS) + 1;
+		dadoDefensor = (rand() % QTD_TERRITORIOS) + 1;
+	}while(dadoAtacante == dadoDefensor);
 
 	printf("\n\t --- RESULTADO DA BATALHA ---\n");
 	printf("O atacando %s rolou um dado e tirou: %d\n", atacante->nome, dadoAtacante);
@@ -109,11 +115,6 @@ int main(){
 		int opcao_territorio_defensor = 0;
 
 		do{
-
-			if(territorios[opcao_territorio_atacante-1].tropas == 0 || territorios[opcao_territorio_defensor-1].tropas ==0 ){
-				printf("\nUm dos territorios nao tem mais tropa. Tente novamente\n");
-			}
-
 			printf("\t --- FASE DE ATAQUE ---\n");
 			printf("Escolha o territorio atacante (1 a 5, ou 0 para sair):");
 			scanf("%d", &opcao_territorio_atacante);
@@ -125,6 +126,11 @@ int main(){
 
 			printf("Escolha o territorio defensor (1 a 5):");
 			scanf("%d", &opcao_territorio_defensor);
+
+			printf("%d - %d\n", territorios[opcao_territorio_atacante-1].tropas, territorios[opcao_territorio_defensor-1].tropas);
+			if(territorios[opcao_territorio_atacante-1].tropas == 0 || territorios[opcao_territorio_defensor-1].tropas ==0 ){
+				printf("\nUm dos territorios nao tem mais tropa. Tente novamente\n");
+			}
 
 			limparBufferEntrada();
 			
